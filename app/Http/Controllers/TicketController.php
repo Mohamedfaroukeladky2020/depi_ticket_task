@@ -10,13 +10,14 @@ class TicketController extends Controller
 {
 
 
-
     // Handle the creation of a new ticket (store method example)
 
 
 
 
-
+    public function __construct()
+{
+}
 
 
     public function store(Request $request)
@@ -33,6 +34,9 @@ class TicketController extends Controller
 
 public function index()
     {
+        if (!Auth::check()) {
+            return redirect('/login');
+        }
         // Fetch all tickets from the database
         $tickets = Ticket::with('comments')->where('user_id', auth::id())->get();
 

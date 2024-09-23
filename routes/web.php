@@ -19,6 +19,7 @@ Route::get('admin',[ControllerAdmin::class,'index']);
 
 Route::get('/login', [AuthController::class, 'showLoginForm'])->name('login');
 Route::post('/login', [AuthController::class, 'login']);
+Route::get('/logout', [AuthController::class, 'logout'])->name(name: 'logout');
 
 Route::get('/tickets', [TicketController::class, 'index']);
 Route::post('/tickets', [TicketController::class, 'store']);
@@ -38,10 +39,10 @@ Route::post('/register', [AuthController::class, 'register'])->name('register');
 use App\Http\Controllers\CommentController;
 
 // Display the comment page with a specific ticket's comments
-Route::get('/ticket/{id}/comments', [CommentController::class, 'show'])->name('comments');
+Route::get('/ticket/comments/{id}', [CommentController::class, 'show'])->name('comments');
 
 // Handle the submission of a new comment
-Route::post('/ticket/{id}/comments', [CommentController::class, 'store'])->name('ticket.comments.store');
+Route::post('/ticket/comments{id}', [CommentController::class, 'store'])->name('ticket.comments.store');
 
 
 

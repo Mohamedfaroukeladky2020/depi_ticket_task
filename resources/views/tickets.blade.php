@@ -22,8 +22,7 @@
             <div class="mb-3">
                 <label for="title" class="form-label">Ticket Title</label>
                 <input type="text" class="form-control" id="title" name="title" required>
-                <label for="user_id" class="form-label">User id</label>
-                <input type="text" class="form-control" id="user_id" name="user_id" required>
+
             </div>
 
             <div class="mb-3">
@@ -57,15 +56,15 @@
                     <h6>Comments:</h6>
                     @foreach($ticket->comments as $comment)
                         <div class="mb-2">
-                            <strong>{{ $comment->user->name }}:</strong> {{ $comment->message }}
+                            <strong>{{ $comment->user->name }}:</strong> {{ $comment->content }}
                         </div>
                     @endforeach
 
                     <!-- Comment Form -->
-                    <form method="POST" action="{{ url('/tickets/'.$ticket->id.'/comments') }}">
+                    <form method="POST" action="{{ url('/ticket/comments',$ticket->id) }}">
                         @csrf
                         <div class="mb-3">
-                            <textarea class="form-control" name="message" rows="2" placeholder="Add a comment..." required></textarea>
+                            <textarea class="form-control" name="content" rows="2" placeholder="Add a comment..." required></textarea>
                         </div>
                         <button type="submit" class="btn btn-secondary btn-sm">Submit Comment</button>
                     </form>
@@ -74,15 +73,7 @@
         @endforeach
     </div>
 
-    @foreach($tickets as $ticket)
-    <h3>{{ $ticket->title }}</h3>
-    <p>{{ $ticket->info }}</p>
-
-    <h4>Comments:</h4>
-    @foreach($ticket->comments as $comment)
-        <p>{{ $comment->content }} (by user {{ $comment->user_id }})</p>
-    @endforeach
-@endforeach
+   
 
 </body>
 </html>

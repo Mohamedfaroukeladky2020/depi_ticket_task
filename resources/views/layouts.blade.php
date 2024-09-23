@@ -16,12 +16,19 @@
             </button>
             <div class="collapse navbar-collapse" id="navbarNav">
                 <ul class="navbar-nav ms-auto">
+
+                    @if (Auth::check())
+
                     <li class="nav-item">
                         <a class="nav-link" href="{{ url('/tickets') }}">Tickets</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="{{ url('/notifications') }}">Notifications</a>
                     </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="{{ url('/logout') }}">logout</a>
+                    </li>
+                    @endif
                 </ul>
             </div>
         </div>

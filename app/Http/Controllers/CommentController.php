@@ -38,6 +38,6 @@ class CommentController extends Controller
         ]);
 
         // Redirect back to the comments page with success message
-        return redirect()->route('comments', $id)->with('success', 'Comment added!');
+        return redirect()->back();
 }
 }
