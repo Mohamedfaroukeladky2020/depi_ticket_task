@@ -23,7 +23,7 @@
                         <a class="nav-link" href="{{ url('/tickets') }}">Tickets</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="{{ url('/notifications') }}">Notifications</a>
+                        <a class="nav-link" href="{{ url('/notification') }}">Notifications</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="{{ url('/logout') }}">logout</a>
